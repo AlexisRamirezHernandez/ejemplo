@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import componentetextfield.CampoDato;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -67,32 +67,14 @@ public class AgregarMaquinaria extends JFrame {
         Modelo.setBounds(0, 75, 300, 150);
         DatosMaquinaria.add(Modelo);
 
-        JTextField Modelotxt = new JTextField("");
+        CampoDato Modelotxt = new CampoDato();
         Modelotxt.setForeground(Color.black);
         Modelotxt.setBorder(null);
         Modelotxt.setBounds(164, 140, 200, 30);
+        Modelotxt.setTipo('E');
+        Modelotxt.setLongitud(15);
         DatosMaquinaria.add(Modelotxt);
-        Modelotxt.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent ke) {
-                char letra = ke.getKeyChar();
-                if (!Character.isDigit(letra) && letra != '.') {
-                    ke.consume();
-                }
-                if (letra == '.' || Modelotxt.getText().contains(".")) {
-                    ke.consume();
-                }
-            }
-
-            @Override
-            public void keyPressed(KeyEvent ke) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent ke) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+       
 
         JLabel Tipo = new JLabel("Tipo de máquina:");
         Tipo.setForeground(Color.white);
@@ -114,33 +96,14 @@ public class AgregarMaquinaria extends JFrame {
         Costo.setBounds(0, 170, 300, 150);
         DatosMaquinaria.add(Costo);
 
-        JTextField CostoTxt = new JTextField();
+        CampoDato CostoTxt = new CampoDato();
         CostoTxt.setForeground(Color.black);
         CostoTxt.setBorder(null);
         CostoTxt.setBounds(161, 238, 200, 30);
+        CostoTxt.setTipo('D');
+        CostoTxt.setLongitud(15);/*Numero de Caracteres que soporta*/
         DatosMaquinaria.add(CostoTxt);
-        CostoTxt.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent ke) {
-                char letra = ke.getKeyChar();
-                if (!Character.isDigit(letra) && letra != '.') {
-                    ke.consume();
-                }
-                if (letra == '.' && CostoTxt.getText().contains(".")) {
-                    ke.consume();
-                }
-            }
-
-            @Override
-            public void keyPressed(KeyEvent ke) {
-                
-            }
-
-            @Override
-            public void keyReleased(KeyEvent ke) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+        
 
         JLabel Matricula = new JLabel("Matricula:");
         Matricula.setForeground(Color.white);
